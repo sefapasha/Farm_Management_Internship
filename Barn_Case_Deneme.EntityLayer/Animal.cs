@@ -11,10 +11,9 @@ namespace Barn_Case_Deneme.EntityLayer
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public int LifeSpan { get; set; } // Hayat süresi (gün/sn)
-
+        public int LifeSpan { get; set; } // Hayat süresi
         public int ProductCount { get; set; }
-        public int ProductInterval { get; set; } // Ürün üretme aralığı
+        public int ProductInterval { get; set; } // Ürün üretme sıklığı
         public int Price { get; set; } // Satış fiyatı
         public object ProductName { get; set; }
         public int Progress { get; set; } = 0;

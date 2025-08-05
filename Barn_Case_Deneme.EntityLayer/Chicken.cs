@@ -11,10 +11,9 @@ namespace Barn_Case_Deneme.EntityLayer
         public Chicken()
         {
             Name = "Chicken";
-            LifeSpan = 10;
-            Price = 8;
-            ProductInterval = 3;  // 3 saniyede bir yumurta üretir
+            LifeSpan = 3; // hayvan yaşını gösteren
             Price = 5;
+            ProductInterval = 3;  // 3 saniyede bir yumurta üretir
         }
 
         public override void Produce()

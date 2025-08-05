@@ -17,7 +17,7 @@ namespace Barn_Case_Deneme.Businness
 
         public event Action AnimalsUpdated;
 
-        private readonly int MaxAnimalCount = 5;
+        private readonly int MaxAnimalCount = 10;
 
         public static readonly Dictionary<string, int> AnimalBuyPrices = new Dictionary<string, int>
     {
@@ -31,7 +31,7 @@ namespace Barn_Case_Deneme.Businness
             if (IsAnimalLimitReached(animalType))
                 return $"Cannot add more than {MaxAnimalCount} {animalType}s.";
 
-            Animal newAnimal = null;
+            Animal newAnimal;
 
             switch (animalType)
             {
@@ -53,7 +53,7 @@ namespace Barn_Case_Deneme.Businness
             return string.Empty;
         }
 
-        public void SellProduct(Animal animal)
+        /*public void SellProduct(Animal animal)
         {
             Cash += animal.ProductCount * animal.Price;
             animal.ProductCount = 0;
@@ -84,7 +84,7 @@ namespace Barn_Case_Deneme.Businness
                 Animals.Remove(dead);
 
             AnimalsUpdated?.Invoke();
-        }
+        }*/
 
         private bool IsAnimalLimitReached(string animalType)
         {
@@ -96,7 +96,7 @@ namespace Barn_Case_Deneme.Businness
             return count >= MaxAnimalCount;
         }
 
-        public void SaveFarm()
+        /*public void SaveFarm()
         {
             FarmData.SaveFarmData(Animals, Cash);
         }
@@ -110,8 +110,8 @@ namespace Barn_Case_Deneme.Businness
 
             Cash = data.Cash;
             AnimalsUpdated?.Invoke();
-        }
-        public void Produce()
+        }*/
+        /*public void Produce()
         {
             foreach (var animal in Animals)
             {
@@ -130,12 +130,8 @@ namespace Barn_Case_Deneme.Businness
             Cash += totalProducts * 10; // Örnek fiyat, gerçek uygulamada dinamik olabilir
             AnimalsUpdated?.Invoke(); // UI'ya haber ver
             return totalProducts;
-        }
+        }*/
     }
-
-   
-
-
 
 
 

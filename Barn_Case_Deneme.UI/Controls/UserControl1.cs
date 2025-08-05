@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Barn_Case_Deneme.Businness;
-using Barn_Case_Deneme.EntityLayer;
 
 namespace Barn_Case_Deneme.UI.Controls
 {
@@ -18,6 +18,8 @@ namespace Barn_Case_Deneme.UI.Controls
             dataGridView1.CellPainting += dataGridView1_CellPainting;
             _manager = manager ?? throw new ArgumentNullException(nameof(manager));
 
+            comboBox1.Text = "Select Animal";
+            comboBox2.Text = "Select Age";
             comboBox1.Items.AddRange(new string[] { "Cow", "Sheep", "Chicken" });
             comboBox2.Items.AddRange(new string[] { "1", "2", "3", "4", "5" });
 
@@ -28,8 +30,34 @@ namespace Barn_Case_Deneme.UI.Controls
             dataGridView1.Columns.Add("Price", "Price ($)");
             dataGridView1.Columns.Add("Total", "Total ($)");
 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             RefreshGrid();
         }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string selectedAnimal = comboBox1.SelectedItem.ToString();
+            int price = 0;
+
+            switch (selectedAnimal)
+            {
+                case "Cow":
+                    price = 150;
+                    break;
+                case "Sheep":
+                    price = 100;
+                    break;
+                case "Chicken":
+                    price = 50;
+                    break;
+            }
+
+            labelAnimalPrice.Text = $"${price}";
+        }
+
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex == dataGridView1.Columns["ProgressBar"].Index && e.RowIndex >= 0)
@@ -46,22 +74,7 @@ namespace Barn_Case_Deneme.UI.Controls
                 e.Handled = true;
             }
         }
-
-        /*private void UserControl1_Load(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
-            comboBox1.Items.AddRange(new string[] { "Cow", "Sheep", "Chicken" });
-            comboBox2.Items.AddRange(new string[] { "1", "2", "3", "4", "5" });
-
-            dataGridView1.Columns.Clear();
-            dataGridView1.Columns.Add("Name", "Name");
-            dataGridView1.Columns.Add("Age", "Age");
-
-            RefreshGrid();
-        }*/
-
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string selectedAnimal = comboBox1.SelectedItem?.ToString();
@@ -69,22 +82,20 @@ namespace Barn_Case_Deneme.UI.Controls
 
             if (!string.IsNullOrEmpty(selectedAnimal) && !string.IsNullOrEmpty(selectedAge))
             {
-                // Fiyatı al
-                int buyPrice = AnimalManager.AnimalBuyPrices[selectedAnimal];
-
-                // Form1 üzerinden bakiyeye ulaş
                 Form1 mainForm = this.FindForm() as Form1;
                 if (mainForm != null)
                 {
-                    // Yeterli para var mı
-                    if (mainForm.TotalBalance < buyPrice)
+                    int buyPrice = AnimalManager.AnimalBuyPrices[selectedAnimal];
+
+                    // Tek kaynaktan kontrol: _manager.Cash
+                    if (_manager.Cash < buyPrice)
                     {
-                        MessageBox.Show($"Yetersiz bakiye! {selectedAnimal} almak için ${buyPrice} gerekli.");
+                        MessageBox.Show($"Yetersiz bakiye! \n{selectedAnimal} almak için ${buyPrice} gerekli.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
                     // Parayı düş
-                    mainForm.TotalBalance -= buyPrice;
+                    _manager.Cash -= buyPrice;
                     mainForm.UpdateBalanceLabel(); // Label güncelle
 
                     string result = _manager.AddAnimal(selectedAnimal, int.Parse(selectedAge));
@@ -96,15 +107,18 @@ namespace Barn_Case_Deneme.UI.Controls
             }
             else
             {
-                MessageBox.Show("Please choose both an animal and age.");
+                MessageBox.Show("Lütfen Hayvanı ve Yaşını Seçiniz!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+
 
 
         public void RefreshGrid()
         {
             dataGridView1.Rows.Clear();
-            foreach (var animal in _manager.Animals)
+
+            foreach (var animal in _manager.Animals.ToList()) // Burada kopyaladık hayvan öldüğü an hayvan ekleyince burası patlıyordu
             {
                 int rowIndex = dataGridView1.Rows.Add(
                     animal.Name,
@@ -119,8 +133,5 @@ namespace Barn_Case_Deneme.UI.Controls
                 dataGridView1.Rows[rowIndex].Cells["ProgressBar"].Value = animal.Progress;
             }
         }
-
-
-
     }
 }

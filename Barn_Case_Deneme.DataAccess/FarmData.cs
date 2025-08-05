@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using Barn_Case_Deneme.EntityLayer;
-using Barn_Case_Deneme.DataAccess;
 
 namespace Barn_Case_Deneme.DataAccess
 {
-    
     public static class FarmData
     {
         private static string filePath = "farmData.txt";
 
+        // KAYDET
         public static void SaveFarmData(List<Animal> animals, int cash)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {
+                writer.WriteLine($"Cash={cash}");
                 foreach (var animal in animals)
                 {
                     writer.WriteLine($"{animal.Name},{animal.Age},{animal.ProductCount},{animal.LifeSpan},{animal.Price}");
                 }
-                writer.WriteLine($"Cash={cash}");
             }
         }
 
+        // YÜKLE
         public static (List<Animal> Animals, int Cash) LoadFarmData()
         {
             var animals = new List<Animal>();
@@ -44,9 +41,7 @@ namespace Barn_Case_Deneme.DataAccess
                 }
 
                 string[] parts = line.Split(',');
-
-                if (parts.Length != 5)
-                    continue;
+                if (parts.Length != 5) continue;
 
                 string type = parts[0];
                 int age = int.Parse(parts[1]);
@@ -55,7 +50,6 @@ namespace Barn_Case_Deneme.DataAccess
                 int price = int.Parse(parts[4]);
 
                 Animal animal = null;
-
                 switch (type)
                 {
                     case "Cow":
@@ -72,6 +66,7 @@ namespace Barn_Case_Deneme.DataAccess
                         break;
                 }
 
+
                 if (animal != null)
                 {
                     animal.Age = age;
@@ -85,5 +80,4 @@ namespace Barn_Case_Deneme.DataAccess
             return (animals, cash);
         }
     }
-
 }

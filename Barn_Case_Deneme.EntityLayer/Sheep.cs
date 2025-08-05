@@ -11,8 +11,8 @@ namespace Barn_Case_Deneme.EntityLayer
         public Sheep()
         {
             Name = "Sheep";
-            LifeSpan = 15;
-            ProductInterval = 7;  // 7 saniyede bir yün üretir
+            LifeSpan = 6;
+            ProductInterval = 5;  // 7 saniyede bir yün üretir
             Price = 10;           // Yün başına 10$
         }
 
