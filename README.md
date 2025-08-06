@@ -1,4 +1,4 @@
-# 🐄 Barn Case Management
+# 🐄 Farm Management
 
 Windows Forms tabanlı bir **Hayvan Çiftliği Simülasyonu**.  
 Oyunda inek, koyun ve tavuk alabilir, ürünlerini toplayıp satabilir ve çiftliğinizi büyütebilirsiniz.  
