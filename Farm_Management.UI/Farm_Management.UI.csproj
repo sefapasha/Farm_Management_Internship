@@ -130,17 +130,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Barn_Case_Deneme.Businness\Barn_Case_Deneme.Businness.csproj">
+    <ProjectReference Include="..\Farm_Management.Businness\Farm_Management.Businness.csproj">
       <Project>{f431afc2-15db-435b-a702-1d7b24ca8d55}</Project>
-      <Name>Barn_Case_Deneme.Businness</Name>
+      <Name>Farm_Management.Businness</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Barn_Case_Deneme.DataAccess\Barn_Case_Deneme.DataAccess.csproj">
+    <ProjectReference Include="..\Farm_Management.DataAccess\Farm_Management.DataAccess.csproj">
       <Project>{a1874ac8-4940-444a-af17-de2812fcf64a}</Project>
-      <Name>Barn_Case_Deneme.DataAccess</Name>
+      <Name>Farm_Management.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Barn_Case_Deneme.EntityLayer\Barn_Case_Deneme.EntityLayer.csproj">
+    <ProjectReference Include="..\Farm_Management.EntityLayer\Farm_Management.EntityLayer.csproj">
       <Project>{5d56a18a-b093-4314-a6e0-8d49395b8155}</Project>
-      <Name>Barn_Case_Deneme.EntityLayer</Name>
+      <Name>Farm_Management.EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

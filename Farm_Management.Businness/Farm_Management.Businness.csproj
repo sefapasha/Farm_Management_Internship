@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1874AC8-4940-444A-AF17-DE2812FCF64A}</ProjectGuid>
+    <ProjectGuid>{F431AFC2-15DB-435B-A702-1D7B24CA8D55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Barn_Case_Deneme.DataAccess</RootNamespace>
-    <AssemblyName>Barn_Case_Deneme.DataAccess</AssemblyName>
+    <RootNamespace>Barn_Case_Deneme.Businness</RootNamespace>
+    <AssemblyName>Barn_Case_Deneme.Businness</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -30,9 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FarmData.cs" />
+    <Compile Include="AnimalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Barn_Case_Deneme.EntityLayer\Barn_Case_Deneme.EntityLayer.csproj">
+    <ProjectReference Include="..\Barn_Case_Deneme.DataAccess\Farm_Management.DataAccess.csproj">
+      <Project>{a1874ac8-4940-444a-af17-de2812fcf64a}</Project>
+      <Name>Farm_Management.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Barn_Case_Deneme.EntityLayer\Farm_Management.EntityLayer.csproj">
       <Project>{5d56a18a-b093-4314-a6e0-8d49395b8155}</Project>
-      <Name>Barn_Case_Deneme.EntityLayer</Name>
+      <Name>Farm_Management.EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
