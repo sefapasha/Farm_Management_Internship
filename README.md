@@ -27,13 +27,13 @@ Ana Ekran         |  Hayvan Yönetimi
 [Buraya Resim]    |  [Buraya Resim]
 🚀 Nasıl Çalıştırılır?
 Projeyi Klonla
-1- git clone https://github.com/KULLANICI_ADI/BarnCaseManagement.git
+1- git clone https://github.com/KULLANICI_ADI/FarmManagement.git
 2- Visual Studio ile aç
 3- Barn_Case_Deneme.UI projesini Startup Project yap
 4- Run (F5) ile çalıştır
 
  🗂️ Katmanlı Mimari
-Barn_Case_Deneme
+Farm_Management
  ├── EntityLayer      # Hayvan sınıfları (Cow, Sheep, Chicken)
  ├── Business         # AnimalManager (iş mantığı)
  ├── DataAccess       # farmData.txt ile veri kaydetme
