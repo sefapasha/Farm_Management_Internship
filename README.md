@@ -27,7 +27,7 @@ Ana Ekran         |  Hayvan Yönetimi
 [Buraya Resim]    |  [Buraya Resim]
 🚀 Nasıl Çalıştırılır?
 Projeyi Klonla
-1- git clone https://github.com/KULLANICI_ADI/FarmManagement.git
+1- git clone https://github.com/sefapasha/Farm_Management_Internship.git
 2- Visual Studio ile aç
 3- Barn_Case_Deneme.UI projesini Startup Project yap
 4- Run (F5) ile çalıştır
