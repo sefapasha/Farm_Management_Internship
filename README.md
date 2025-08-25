@@ -24,7 +24,8 @@ Hayvanlar zamanla yaşlanır, ürün üretir ve ömürleri dolunca ölür.
 
 Giriş Ekranı         |  Hayvan Yönetimi
 ------------------|------------------
-<img width="665" height="532" alt="ff1" src="https://github.com/user-attachments/assets/40934d85-8b49-4c8a-8b4d-d12a8652d05e" />    |  <img width="1156" height="658" alt="ff3" src="https://github.com/user-attachments/assets/c3b46261-6842-4205-b8dd-b14482998d46" /> <img width="1145" height="665" alt="ff4" src="https://github.com/user-attachments/assets/dae7c7c5-d1b0-430d-b9aa-66e3756727b7" />
+  <img width="665" height="533" alt="ff1" src="https://github.com/user-attachments/assets/75100b25-568f-4cc9-953d-acf674550bcc" /> | <img width="1157" height="665" alt="ff2" src="https://github.com/user-attachments/assets/7da6000c-2823-41d6-821e-169d044ea526" /> <img width="1157" height="668" alt="ff3" src="https://github.com/user-attachments/assets/12519d67-75f5-4010-83e0-cb1d7f4853cf" />
+
 
 ---
 
